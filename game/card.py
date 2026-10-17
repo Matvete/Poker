@@ -48,16 +48,19 @@ class Card:
         return f"{figures.get(self.value.value,self.value.value)} {self.suit.value}"
 
 class Deck:
-    def __init__(self, min_card_value: int = 2, max_card_value: int = 14):
+    def __init__(self):
         self.cards = []
-        if min_card_value < 2:
+
+    def generate_deck(self, min_card_value: int = 2, max_card_value: int = 14):
+        self.cards = []
+        if min_card_value < 2 or min_card_value > 14:
             min_card_value = 2
-        if max_card_value > 14:
+        if  max_card_value < 2 or max_card_value > 14:
             max_card_value = 14
         for suit in Suit:
             for i in range(min_card_value, max_card_value + 1):
                 self.cards.append(Card(get_card_value_by_value(i), suit))
-                
+
     def __str__(self) -> str:
         result = []
         for card in self.cards:
