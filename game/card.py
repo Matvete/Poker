@@ -1,4 +1,5 @@
 from enum import Enum
+from random import Random
 
 
 class Suit(Enum):
@@ -50,6 +51,20 @@ class Card:
 class Deck:
     def __init__(self):
         self.cards = []
+
+    def put_cards(self,cards: list[Card]):
+        for card in cards:
+            if not card in self.cards:
+                self.cards.append(card)
+
+    def withdraw_random(self):
+        random = Random()
+        return self.cards.pop(random.randint(0,len(self.cards)))
+
+    def withdraw(self, card: Card):
+        if card in self.cards:
+            self.cards.remove(card)
+        return card
 
     def generate_deck(self, min_card_value: int = 2, max_card_value: int = 14):
         self.cards = []
