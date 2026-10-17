@@ -2,7 +2,7 @@ from enum import Enum
 from random import Random
 
 
-class Suit(Enum):
+class CardSuit(Enum):
     CLUB = "♧"
     DIAMOND = "♢"
     HEART = "♡"
@@ -39,7 +39,7 @@ def get_card_value_by_value(value: int):
             14: CardValue.ACE}[value]
 
 class Card:
-    def __init__(self, value: CardValue, suit: Suit):
+    def __init__(self, value: CardValue, suit: CardSuit):
         self.value = value
         self.suit = suit
 
@@ -72,7 +72,7 @@ class Deck:
             min_card_value = 2
         if  max_card_value < 2 or max_card_value > 14:
             max_card_value = 14
-        for suit in Suit:
+        for suit in CardSuit:
             for i in range(min_card_value, max_card_value + 1):
                 self.cards.append(Card(get_card_value_by_value(i), suit))
 
