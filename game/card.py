@@ -57,11 +57,11 @@ class Deck:
             if not card in self.cards:
                 self.cards.append(card)
 
-    def withdraw_random(self):
+    def draw_random(self):
         random = Random()
         return self.cards.pop(random.randint(0,len(self.cards)))
 
-    def withdraw(self, card: Card):
+    def draw(self, card: Card):
         if card in self.cards:
             self.cards.remove(card)
         return card
