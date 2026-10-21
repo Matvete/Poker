@@ -63,7 +63,10 @@ class Deck:
     def draw(self, card: Card):
         if card in self.cards:
             self.cards.remove(card)
-        return card
+            return card
+        else:
+            raise IndexError(f"Card {card} not found in {self}")
+
 
     def generate_deck(self, min_card_value: int = 2, max_card_value: int = 14):
         self.cards = []
