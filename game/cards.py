@@ -54,7 +54,7 @@ class Deck:
 
     def put_cards(self,cards: list[Card]):
         for card in cards:
-            if not card in self.cards:
+            if card not in self.cards:
                 self.cards.append(card)
 
     def draw_random(self):
