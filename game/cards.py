@@ -58,7 +58,7 @@ class Deck:
                 self.cards.append(card)
 
     def draw_random(self):
-        return self.cards.pop(Random().randint(0,len(self.cards)))
+        return self.cards.pop(Random().randint(0,len(self.cards) - 1))
 
     def draw(self, card: Card):
         if card in self.cards:
