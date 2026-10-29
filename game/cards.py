@@ -80,4 +80,6 @@ class Deck:
 
     def __str__(self) -> str:
         result = []
+        for card in cards:
+                result.append(str(card))
         return ", ".join(result)
